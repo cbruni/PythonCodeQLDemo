@@ -1,19 +1,8 @@
-import sqlite3
+import os
 
-def search_user(username):
-    conn = sqlite3.connect('users.db')
-    cursor = conn.cursor()
+def run_system_command(user_input):
+    command = f"ls {user_input}"
+    os.system(command)
 
-    query = f"SELECT * FROM users WHERE username = '{username}'"
-
-    cursor.execute(query)
-
-    user = cursor.fetchone()
-    if user:
-        print(f"User found: {user}")
-    else:
-        print("User not found.")
-
-    conn.close()
-
-search_user("admin' OR '1'='1")  # SQL Injection attempt
+user_input = input("Enter the directory or file name: ")
+run_system_command(user_input)
