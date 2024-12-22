@@ -1,7 +1,4 @@
-# vulnerable.py
-
 def connect_to_database():
-    # Vulnerable: Hardcoded database credentials (BAD PRACTICE)
     db_user = 'admin'
     db_password = 'password123'
     db_host = 'localhost'
@@ -15,5 +12,4 @@ def connect_to_database():
         print("Failed to connect to the database.")
         raise ValueError("Database connection failed due to incorrect credentials.")
 
-# Call the function (this will trigger the connection attempt)
 connect_to_database()
